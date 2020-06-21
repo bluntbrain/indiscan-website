@@ -1,0 +1,186 @@
+<html class="no-js"> 
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>#IndianAppsBeatChina</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    </head>
+    <body>
+       <!-- The core Firebase JS SDK is always required and must be listed first -->
+			<script src="https://www.gstatic.com/firebasejs/7.15.3/firebase-app.js"></script>
+
+			<!-- TODO: Add SDKs for Firebase products that you want to use
+                https://firebase.google.com/docs/web/setup#available-libraries -->
+                			<script src="https://www.gstatic.com/firebasejs/7.15.3/firebase-database.js"></script>
+
+			<script src="https://www.gstatic.com/firebasejs/7.15.3/firebase-analytics.js"></script>
+			<script src="https://www.gstatic.com/firebasejs/7.15.3/firebase-database.js"></script>
+
+			<script>
+			// Your web app's Firebase configuration
+			var firebaseConfig = {
+				apiKey: "AIzaSyCE56pa4tQVMj0_CimPfQVAKXImXkesqwE",
+				authDomain: "indiscanwebsite.firebaseapp.com",
+				databaseURL: "https://indiscanwebsite.firebaseio.com",
+				projectId: "indiscanwebsite",
+				storageBucket: "indiscanwebsite.appspot.com",
+				messagingSenderId: "167581400930",
+				appId: "1:167581400930:web:dce9e2bf2042518bb5f63b",
+				measurementId: "G-27B8PTF49H"
+			};
+			// Initialize Firebase
+			firebase.initializeApp(firebaseConfig);
+            firebase.analytics();
+            var newClicks = 0;
+            getData();     
+            function writeData(){
+            newClicks += 1;
+            totalCount = 1 + dataBaseclicks;
+            firebase.database().ref("User").set({
+                clicks: totalCount,
+            
+            });
+            var personName = document.getElementById("personName").value;
+		    document.getElementById("dataName").innerText= "I " + personName.toString()+", belive that privacy is the right of every Indian citizen. I pledge to delete Chinese Applications from my device and install their Alternatives.";
+            getData();
+        }
+            function getData(){
+                firebase.database().ref('/').once('value',function(snapshot){
+                    snapshot.forEach(function(childSnapshot)
+                    {
+                        var childKey = childSnapshot.key;
+                        var childData = childSnapshot.val();
+                        dataBaseclicks = childData['clicks'];
+                        document.getElementById("data").innerHTML = childData['clicks'];
+                        
+
+                    })
+                })
+            }
+            
+            </script>
+            <div class="w3-top">
+                    <div class="w3-bar w3-red w3-card w3-left-align w3-large">
+                      <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+                      <a href="#" class="w3-bar-item w3-button w3-padding-large w3-white">#IndianAppsBeatChina</a>
+                    </div>
+            </div>
+            
+            <!-- Header -->
+            <!-- <header class="w3-container w3-red w3-center" style="padding:128px 16px">
+                <h1 class="w3-margin w3-jumbo" style="font-size: xx-large;" id="data"></h1>
+                <p style="font-size: xx-large;">people have taken the pledge.</p>
+                
+                <div class="container p-3">
+                <form>
+                        <input class="w3-button w3-white w3-padding-large w3-large w3-margin-top" id="personName" type="text" placeholder="Enter Your Name">
+                        <button class="w3-button w3-black w3-padding-large w3-large w3-margin-top" onclick="writeData()" >Take the Pledge</button>
+                </form>
+                </div>
+                <p style="font-size: xx-large;">Privacy isn't negotiable it's the Right of every Indian citizen.</p>
+            </header> -->
+            <header class="w3-container w3-red w3-center" style="padding:128px 10px">
+            <p style="font-size:200px" id="data"></p>
+            <p style="font-size: x-large;">people have taken the pledge.</p><br>
+            <p style="font-size: xx-large;">Privacy isn't negotiable it's the Right of every Indian citizen.</p><br><br>
+            <p style="font-size: large;">Scroll Down to take the pledge</p>
+            <!-- <p id="dataName"></p> -->
+            </header>   
+            
+            <!-- First Grid -->
+            <div class="w3-row-padding w3-container">
+                    <div class="w3-content w3-section" >
+                        <h1 class="w3-center">Indian Alternatives and others</h1>
+                            <img class="mySlides " src="./images/apps1.png" style="width:100%">
+                            <img class="mySlides" src="./images/apps2.png" style="width:100%">
+                            
+                    </div>
+            </div>
+            
+            <!-- Second Grid -->
+            <div class="w3-row-padding w3-light-grey w3-padding-16 w3-container">
+                    <div class="w3-content">
+                    
+                
+                    <div class="w3-third w3-center ">
+                        <h1>Lorem Ipsum</h1>
+                        <h5 class="w3-padding-32 w3-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h5>
+                
+                        <input class="w3-button w3-white w3-padding-large w3-large w3-margin-top" type="text" id="personName" placeholder="Enter your name">
+                        <button class="w3-button w3-black w3-padding-large w3-large w3-margin-top" onclick="writeData()">Take Pledge</button><br><br>
+                    </div>
+                    <br>
+                    <div class="w3-twothird w3-center">
+                            <div class="card mx-auto" style="width: 24rem; background-color:#E25241; ">
+                                    <img class="card-img-top" src="./images/congrats.jpg" alt="Card image cap" >
+                                    <div class="card-body w3-padding-32">
+                                      <h5 class="card-title" style="color: white;">PLEDGE</h5>
+                                      <p class="w3-left" id="dataName" style="color: white; font-size:large; text-align: justify;
+                                      text-justify: inter-word;"></p>
+                                      <!-- <p class="w3-left" style="color: white;font-size:large;text-align: justify;
+                                      text-justify: inter-word;">belive that privacy is the right of every Indian citizen. I pledge to delete Chinese Apps from my device and install their alternatives.</p> -->
+                                      <p class="w3-left" style="color: white;font-size:large">Take the pledge at indianappsbeatchina.in</p>
+                                      <p  class="w3-left"style="color: white;font-size:large">Let's reach a whooping 10,000 pledges.</p>
+                                      <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                                    </div>
+                                  </div>
+                    </div>
+                    </div>
+                </div>
+                
+                <div class="w3-container w3-black w3-center w3-opacity w3-padding-64">
+                        <h1 class="w3-margin w3-xlarge" id="demo"></h1>
+                    </div>          
+
+
+                    <script>
+                            // Used to toggle the menu on small screens when clicking on the menu button
+                            function myFunction() {
+                              var x = document.getElementById("navDemo");
+                              if (x.className.indexOf("w3-show") == -1) {
+                                x.className += " w3-show";
+                              } else { 
+                                x.className = x.className.replace(" w3-show", "");
+                              }
+                            }
+                            
+                                // Set the date we're counting down to
+                                var countDownDate = new Date("Jul 5, 2020 15:37:25").getTime();
+                                
+                                // Update the count down every 1 second
+                                var x = setInterval(function() {
+                                
+                                  // Get today's date and time
+                                  var now = new Date().getTime();
+                                    
+                                  // Find the distance between now and the count down date
+                                  var distance = countDownDate - now;
+                                    
+                                  // Time calculations for days, hours, minutes and seconds
+                                  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                                  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                                  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                                  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                                    
+                                  // Output the result in an element with id="demo"
+                                  document.getElementById("demo").innerHTML = "Campaign ends in : "+days + "d " + hours + "h "
+                                  + minutes + "m " + seconds + "s ";
+                                    
+                                  // If the count down is over, write some text 
+                                  if (distance < 0) {
+                                    clearInterval(x);
+                                    document.getElementById("demo").innerHTML = "EXPIRED";
+                                  }
+                                }, 1000);
+                            </script>
+
+        
+    </body>
+</html>
